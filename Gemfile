@@ -44,11 +44,10 @@ group :development, :test do
   gem 'spring'
 end
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  gem 'pg',             '0.17.1'
+  gem 'rails_12factor', '0.0.2'
 end
 
 gem 'spree', '3.0.4'
-gem 'spree_core', '~> 3.0.4'
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
