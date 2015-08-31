@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -49,5 +49,6 @@ group :production do
 end
 
 gem 'spree', '3.0.4'
+gem 'spree_core', '~> 3.0.4'
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
