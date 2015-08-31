@@ -1,0 +1,29 @@
+<h1>List Products</h1>
+<%= link_to 'New Product', user_new_product_path, :class => "btn btn-primary btn-success", method: :get %>
+</br>
+</br>
+ <table class="table" id="listing_products">
+ 	<% unless @products.empty? %>
+	 	<th>Name</th>
+	 	<th>Image</th>
+	 	<th>Description</th>
+	 	<th>Price</th>
+	 	<th>Taxonomic Category</th>
+ 	<% end %>
+ 	<% @products.each do |product| %>
+ 		<tr>
+ 			<td><%= product.name %></td>
+ 			<td>
+ 				<% product.images.each do |image| %>
+					<img src=<%= image.attachment.url(:mini) %> >
+ 				<% end %>
+ 			</td>
+ 			<td><%= product.description %></td>
+ 			<td>$<%= product.price %></td>
+ 			<td><%= product.tax_category.name %></td>
+ 			<td><%= link_to 'Edit' , edit_product_path(product), class: "btn btn-primary btn-info" %></td>
+ 			<td><%= link_to 'Delete', destroy_product_user_path(product), class: "btn btn-primary btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %></td>
+ 			<td><%= link_to 'Add/Remove Image', new_image_product_path(product), class: "btn btn-primary btn-primary" %></td>
+ 		</tr>
+ 	<% end %>
+ </table>

@@ -1,0 +1,22 @@
+<table>
+	<tr>
+		<% @images.each do |image| %>
+		<td><%= image_tag image.attachment.url(:small) %></td>
+		<td><%= link_to "Delete", destroy_image_product_path(image), class: "btn btn-primary btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		<% end %>
+	</tr>
+</table>
+
+</br>
+
+<%= form_for :image,url: create_image_product_user_path, html: { multiple: true } do |f| %>
+	<p><%= f.file_field :attachment %></p>
+	<%= f.hidden_field :viewable_type, :value => "Spree::Variant"%>
+	<%= f.hidden_field :viewable_id, :value => @variant_id %>
+	<%= f.submit %>
+<% end %>
+
+</br>
+
+<%= link_to "Back", all_product_user_path %>
+
