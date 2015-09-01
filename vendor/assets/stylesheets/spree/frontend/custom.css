@@ -1,0 +1,13 @@
+#spree-header #header {
+	background: rgb(255, 51, 204);	
+}
+#spree-header {
+	background:  rgb(255, 153, 255);
+}
+
+.panel-default {
+	border-color:  rgb(255, 153, 255);
+}
+.panel-footer {
+	border-color:  rgb(255, 153, 255);	
+}

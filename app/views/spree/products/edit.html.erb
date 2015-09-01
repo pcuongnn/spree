@@ -1,5 +1,5 @@
 <h1>Edit Product</h1>
-
+<%= render :partial => 'spree/admin/shared/error_messages', :locals => { :target => @product } %>
 <%= form_for :product, url: update_product_user_path(@product), html: { multipart: true }, method: :put do |f| %>
     <p>
       <%= f.label :name %><br>
