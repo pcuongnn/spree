@@ -1,5 +1,7 @@
 Spree::ProductsController.class_eval do
   before_action :get_product_id, only: [:edit, :update_product_user, :new_image, :destroy_product_user]
+  before_action :auth_product_user, only: [:new, :create, :edit, :update_product_user, :new_image, :create_image_product_user, :destroy_product_user, :destroy_image_product]
+
   def all_product_user
     @products = spree_current_user.spree_products
   end
@@ -65,5 +67,12 @@ Spree::ProductsController.class_eval do
 
   def get_params_image_product
     params.require(:image).permit(:attachment, :viewable_type, :viewable_id) if params[:image]
+  end
+
+  def auth_product_user
+    product = Spree::Product.friendly.find(params[:id])
+    unless ((spree_current_user.try(:id) == product.user_id) || spree_current_user.try(:admin?) )
+       redirect_to products_path
+     end
   end
 end
