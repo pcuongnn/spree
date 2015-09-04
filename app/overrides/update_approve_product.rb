@@ -7,12 +7,3 @@ Deface::Override.new(:virtual_path => "spree/admin/products/_form",
   	<%= f.check_box :approve, class: 'form-control' %>
   <% end %>"
   )
-
-Deface::Override.new(:virtual_path => "spree/shared/_products",
-  :name => "show_approve",
-  :surround => "[data-hook='products_list_item']",
-  :text => "
-  <% if product.approve == true %>
-  	<%= render_original %>
-  <% end %>"
-  )
